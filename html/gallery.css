@@ -1,0 +1,219 @@
+/* home */
+
+    /* hero  */
+     body {
+      margin: 0;
+      padding: 0;
+    }
+    .hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(/San-Francisco-California.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      filter: brightness(60%);
+    }
+    .hero-content {
+      position: relative;
+      font-family: "Monserrat", sans-serif;
+      color: white;
+      text-align: center;
+      margin: 0.625rem;
+    }
+    
+    .hero-title {
+        
+        font-size: 4rem;
+        font-weight: 600;
+        margin-bottom: 0;
+        color: #FBF4EC;
+    }
+    .hero-subtitle {
+        font-size: 2rem;
+        font-weight: 200;
+        margin-top: 1rem;
+    }
+    .hero-button {
+      background-color: black;
+      color: white;
+      border: 1px solid #cb376a;
+      margin-top: 5rem;
+      padding: 0.9375rem 1.875rem;
+      font-family: "Monserrat", sans-serif;
+      font-size: 1.125rem;
+      font-weight: 200;
+      cursor: pointer;
+    }
+    .hero-button:hover {
+        background-color: white;
+        border: 1px solid #25565A;
+        color: #222;
+    }
+
+    .silicon-font{
+        font-family: 'Russo One', sans-serif;
+    }
+
+
+
+
+
+
+
+
+
+/* gallery  */
+
+body {
+    font-family: Arial;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  img {
+    vertical-align: middle;
+  }
+  
+  .container {
+    position: relative;
+  }
+  
+  .mySlides {
+    display: none;
+  }
+  
+  .cursor {
+    cursor: pointer;
+  }
+  
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+/* img size  */
+  div.mySlides img{
+    width: 2000px;
+    height: 1000px;
+  }
+
+  div.column img{
+    width: 500px;
+    height: 200px;
+  }
+
+
+  /* media query  */
+
+  /* tablet   */
+  @media screen and (max-width: 880px ) {
+    .photoGallery{
+        width: 800px;
+        height: 400px;
+    }
+
+        div.mySlides img{
+            width: 700px;
+            height: 350px;
+        }
+        
+        div.column img{
+            width: 650px;
+            height: 100px;
+        }
+  }
+
+
+
+
+
+
+  /* mobile  */
+  @media screen and (max-width: 580px) {
+    .photoGallery{
+        width: 500px;
+        height: 250px;
+    }
+
+        div.mySlides img{
+            width: 300px;
+            height: 150px;
+        }
+        
+        div.column img{
+            width: 250px;
+            height: 50px;
+        }
+  }
