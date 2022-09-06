@@ -7,6 +7,10 @@ const HomeRouter = require('./routes/home');
 const AboutRouter = require('./routes/about');
 const GalleryRouter = require('./routes/gallery');
 
+//static files (css and img)
+app.use(express.static('public'));
+app.use('/style',express.static(__dirname+'public/css'));
+app.use('/img',express.static(__dirname+'public/img'));
 
 //middleware
 app.use(express.json());
@@ -17,10 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('views', './views');
 app.set('view engine', 'ejs')
 
-//static files (css and img)
-app.use(express.static('public'));
-app.use('/style',express.static(__dirname+'/public/css'));
-app.use('img',express.static(__dirname+'/public/img'));
+
 
 //Routes Here
 app.use("/", HomeRouter);
