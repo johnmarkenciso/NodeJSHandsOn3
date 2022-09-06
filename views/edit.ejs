@@ -14,25 +14,30 @@
 
 <body>
     <%- include('../public/partials/nav.ejs')%>
-        <h2>Edit Form</h2>
-        <form class="w-75" action="/gallery/update/<%=data.id%>" method="POST">
-            <div class="form-group mb-3">
-                <label for="id" class="form-label">ID</label>
-                <input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp"
-                    placeholder="<%=data.id%>" value="<%=data.id%>">
-            </div>
-            <div class="form-group mb-3">
-                <label for="billionare" class="form-label">Name</label>
-                <input type="text" class="form-control" id="billionare" name="billionare"
-                    placeholder="<%=data.billionare%>" value="<%=data.billionare%>">
-            </div>
-            <div class="form-group mb-3">
-                <label for="imgLink" class="form-label">Image Link</label>
-                <input type="text" class="form-control" id="imgLink" name="imgLink" placeholder="<%=data.imgLink%>"
-                    value="<%=data.imgLink%>">
-            </div>
-            <button type="submit" class="btn btn-dark">Submit</button>
-        </form>
+        <h1 class="text-center">Edit Form</h1>
+        <section class="container d-flex justify-content-center ">
+            <form class="w-75" action="/gallery/update/<%=data.id%>" method="POST">
+                <div class="form-group mb-3">
+                    <label for="id" class="form-label">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp"
+                        placeholder="<%=data.id%>" value="<%=data.id%>">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="billionare" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="billionare" name="billionare"
+                        placeholder="<%=data.billionare%>" value="<%=data.billionare%>">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="imgLink" class="form-label">Image Link</label>
+                    <input type="text" class="form-control" id="imgLink" name="imgLink" placeholder="<%=data.imgLink%>"
+                        value="<%=data.imgLink%>">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+
+        </section>
+
 </body>
 
 </html>
