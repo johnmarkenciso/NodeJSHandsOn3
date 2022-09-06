@@ -6,11 +6,14 @@ const app = express();
 const HomeRouter = require('./routes/home');
 const AboutRouter = require('./routes/about');
 const GalleryRouter = require('./routes/gallery');
+const viewRouter = require('./routes/view');
+const editRouter = require('./routes/edit');
 
 //static files (css and img)
 app.use(express.static('public'));
 app.use('/style',express.static(__dirname+'public/css'));
 app.use('/img',express.static(__dirname+'public/img'));
+app.use('/js',express.static(__dirname+'public/js'));
 
 //middleware
 app.use(express.json());
@@ -27,6 +30,8 @@ app.set('view engine', 'ejs')
 app.use("/", HomeRouter);
 app.use("/about", AboutRouter);
 app.use("/gallery",GalleryRouter);
+app.use("/view", viewRouter);
+app.use("/edit",editRouter);
 
 //Connection
 const port = 8080;
