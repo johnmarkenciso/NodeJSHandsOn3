@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../public/partials/header.ejs')%>
+
+    <body>
+        <%- include('../public/partials/nav.ejs')%>
+            <div class="container">
+                <form action="/library/add" method="POST">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" aria-describedby="emailHelp" name="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="order" class="form-label">Order</label>
+                        <input type="text" class="form-control" id="order" aria-describedby="emailHelp" name="order">
+                    </div>
+                    <div class="mb-3">
+                        <label for="completed" class="form-label">Completed</label>
+                        <select id="completed" class="form-select" name="completed">
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="author" class="form-label">Author</label>
+                        <input type="text" class="form-control" id="author" aria-describedby="emailHelp" name="author">
+                    </div>
+                    <div class="mb-3">
+                        <label for="bookImgcover" class="form-label">Cover Image Link:</label>
+                        <input type="text" class="form-control" id="bookImgcover" aria-describedby="emailHelp"
+                            name="bookImgcover">
+                    </div>
+
+                    <button class="btn btn-primary my-4">Add</button>
+                </form>
+
+                <!-- <div class=" w-50 mx-auto">
+                    <form action="library/search">
+                        <div class="mb-3">
+                            <label for="ID" class="form-label">Search By ID:</label>
+                            <input type="text" class="form-control" id="id" aria-describedby="emailHelp" name="id">
+                        </div>
+                        <button class="btn btn-primary">Search</button>
+                    </form>
+                </div> -->
+
+                <% if (books.length> 1){ %>
+                    <!-- loop the data -->
+                    <div class="d-flex gap-2">
+                        <% books.forEach(book=> { %>
+                            <div class="card my-5" style="width: 18rem; height: 50vh;">
+                                <img class="card-img-top" src="<%= book.bookImgcover%>" alt="Card image cap"
+                                    width="18rem" height="200px">
+                                <div class="card-body">
+                                    <h5 class="card-title"><span class="fw-bold">ID:</span>
+                                        <%= book.id %>
+                                    </h5>
+                                    <h5 class="card-title"><span class="fw-bold">Title:</span>
+                                        <%= book.title %>
+                                    </h5>
+                                    <h5 class="card-title"><span class="fw-bold">Author:</span>
+                                        <%= book.author %>
+                                    </h5>
+                                    <h5 class="card-title"><span class="fw-bold">Order:</span>
+                                        <%= book.order %>
+                                    </h5>
+                                    <h5 class="card-title"><span class="fw-bold">Completed:</span>
+                                        <%= book.completed %>
+                                    </h5>
+
+                                    <div class="d-flex gap-3">
+                                        <a href="/library/<%= book.id%>" class="btn btn-primary btn-sm">View
+                                            Book</a>
+                                        <form method="get" action="library/update/<%= book.id %>">
+                                            <button class=" btn btn-primary">Edit</button>
+                                        </form>
+                                        <form method="POST" action="library/delete/<%= book.id %>?_method=DELETE">
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+                    <% } else{ %>
+                        <h2>No Books to display</h2>
+                        <%} %>
+
+
+                            <% if (books.length==1){ %>
+                                <% books.forEach(book=> { %>
+                                    <div class="card my-5" style="width: 18rem; height: 50vh;">
+                                        <img class="card-img-top" src="<%= book.bookImgcover%>" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><span class="fw-bold">Title:</span>
+                                                <%= book.title %>
+                                            </h5>
+                                            <h5 class="card-title"><span class="fw-bold">Author:</span>
+                                                <%= book.author %>
+                                            </h5>
+                                            <h5 class="card-title"><span class="fw-bold">Order:</span>
+                                                <%= book.order %>
+                                            </h5>
+                                            <h5 class="card-title"><span class="fw-bold">Completed:</span>
+                                                <%= book.completed %>
+                                            </h5>
+
+                                            <div class="d-flex gap-3">
+                                                <a href="/library/<%= book.id%>" class="btn btn-primary btn-sm">View
+                                                    Book</a>
+                                                <form method="get" action="library/update/<%= book.id %>">
+                                                    <button class=" btn btn-primary">Edit</button>
+                                                </form>
+                                                <form method="POST"
+                                                    action="library/delete/<%= book.id %>?_method=DELETE">
+                                                    <button class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <% }) %>
+            </div>
+            <% } else{ %>
+
+                <%} %>
+
+
+                    </div>
+    </body>
+
+</html>

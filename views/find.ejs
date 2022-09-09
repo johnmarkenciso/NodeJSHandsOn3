@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../public/partials/header.ejs')%>
+
+    <body>
+        <%- include('../public/partials/nav.ejs')%>
+
+            <div class="container row border mx-auto my-5">
+                <div class="col-6">
+                    <img class="img-fluid" src="<%= books.bookImgcover%>" alt="Card image cap">
+                </div>
+                <div class="col-6">
+                    <h1 class="card-title">
+                        <%= books.title %>
+                    </h1>
+                    <h5 class="card-text">Author:<%= books.author %>
+                    </h5>
+                    <p>Order: <%= books.order %>
+                    </p>
+                    <p>Completed: <%= books.completed %>
+                    </p>
+
+
+
+                </div>
+
+            </div>
+
+
+
+            </div>
+    </body>
+
+</html>

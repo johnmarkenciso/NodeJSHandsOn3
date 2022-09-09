@@ -1,0 +1,36 @@
+<% if (books.length==1){ %>
+    <% books.forEach(book=> { %>
+        <div class="card my-5" style="width: 18rem; height: 50vh;">
+            <img class="card-img-top" src="<%= book.bookImgcover%>" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><span class="fw-bold">Title:</span>
+                    <%= book.title %>
+                </h5>
+                <h5 class="card-title"><span class="fw-bold">Author:</span>
+                    <%= book.author %>
+                </h5>
+                <h5 class="card-title"><span class="fw-bold">Order:</span>
+                    <%= book.order %>
+                </h5>
+                <h5 class="card-title"><span class="fw-bold">Completed:</span>
+                    <%= book.completed %>
+                </h5>
+
+                <div class="d-flex gap-3">
+                    <a href="/library/<%= book.id%>" class="btn btn-primary btn-sm">View
+                        Book</a>
+                    <form method="get" action="library/update/<%= book.id %>">
+                        <button class=" btn btn-primary">Edit</button>
+                    </form>
+                    <form method="POST" action="library/delete/<%= book.id %>?_method=DELETE">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <% }) %>
+            </div>
+            <% } else{ %>
+
+                <%} %>

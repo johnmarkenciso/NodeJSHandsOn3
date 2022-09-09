@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../public/partials/header.ejs')%>
+
+    <body>
+        <%- include('../public/partials/nav.ejs')%>
+            <div class="container">
+                <form action="<%= books.id %>?_method=PUT" method="POST">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" aria-describedby="emailHelp" name="title"
+                            value="<%=books.title%>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="order" class="form-label">Order</label>
+                        <input type="number" class="form-control" id="order" aria-describedby="emailHelp" name="order"
+                            value="<%=books.order%>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="completed" class="form-label">Completed</label>
+                        <select id="completed" class="form-select" name="completed">
+                            <option value="true">true</option>
+                            <option value="false">false</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="author" class="form-label">Author</label>
+                        <input type="text" class="form-control" id="author" aria-describedby="emailHelp" name="author"
+                            value="<%=books.author%>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="bookImgcover" class="form-label">Cover Image Link:</label>
+                        <input type="text" class="form-control" id="bookImgcover" aria-describedby="emailHelp"
+                            name="bookImgcover" value="<%=books.bookImgcover%>">
+                    </div>
+
+                    <button class="btn btn-primary my-4">Update</button>
+                </form>
+            </div>
+    </body>
+
+</html>

@@ -33,7 +33,7 @@ GalleryRouter.get("/", (req,res)=>{
         //find items by id
         let id  = parseInt(req.params.id);
         let check = imgData.find((item)=>{
-            return item.id === id;
+            return parseInt(item.id) === id;
         });
         //verify the data by id
         if(check){
@@ -47,7 +47,7 @@ GalleryRouter.get("/", (req,res)=>{
     GalleryRouter.get('/edit/:id',(req, res)=>{
         //find items by id
         let check = imgData.find((item)=>{
-            return item.id === parseInt(req.params.id)
+            return parseInt(item.id) === parseInt(req.params.id)
         });
         //verify the data by id
         if(check){
@@ -63,7 +63,7 @@ GalleryRouter.get("/", (req,res)=>{
       GalleryRouter.post('/update/:id',(req, res)=>{
         let id = parseInt(+req.params.id);
         let body = req.body;
-        let index = imgData.findIndex((df)=>df.id === id);
+        let index = imgData.findIndex((df)=>parseInt(df.id)=== id);
         if(id >=0){
            let updateData = {id:id, ...body};
            imgData[index] =  updateData;
@@ -88,7 +88,7 @@ GalleryRouter.get("/", (req,res)=>{
         //delete
         GalleryRouter.get('/delete/:id',(req, res)=>{
             let id = +req.params.id;
-            let index = imgData.findIndex((df)=>df.id === id);
+            let index = imgData.findIndex((df)=>parseInt(df.id) === id);
             if(id>=-1){
                 imgData.splice(index, 1);
                 res.redirect('/gallery');
