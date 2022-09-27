@@ -15,6 +15,8 @@ const GalleryRouter = require('./routes/gallery');
 const viewRouter = require('./routes/view');
 const editRouter = require('./routes/edit');
 const libraryRouter = require('./routes/bookLibrary');
+const routerLogin = require('./routes/login');
+const routerRegister = require('./routes/signUp');
 
 //static files (css and img)
 app.use(express.static('public'));
@@ -38,6 +40,8 @@ app.use("/gallery",GalleryRouter);
 app.use("/view", viewRouter);
 app.use("/edit",editRouter);
 app.use("/library",libraryRouter)
+app.use("/login", routerLogin);
+app.use('/signUp',routerRegister);
 
 //Connection
 mongoose.connect(process.env.DB_CONNECT, ()=>{
@@ -48,3 +52,9 @@ const port = 8080;
 app.listen(port,()=>{
     console.log(`Connection succesfull Port:${port}`);
 })
+
+//if no page found
+//if no home detected
+app.use((req,res)=>{
+    res.status(404).render('page404',{title:'Page not Found!'})
+});
